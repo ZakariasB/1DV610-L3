@@ -1,0 +1,20 @@
+{
+  "name": "1dv610-l3",
+  "version": "1.0.0",
+  "description": "Assignment L3",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZakariasB/1DV610-L3.git"
+  },
+  "author": "Zakarias Bergcrona",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZakariasB/1DV610-L3/issues"
+  },
+  "homepage": "https://github.com/ZakariasB/1DV610-L3#readme"
+}
