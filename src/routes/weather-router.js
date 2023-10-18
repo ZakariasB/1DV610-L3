@@ -6,4 +6,4 @@ export const router = express.Router()
 
 const controller = new WeatherController()
 
-router.post('/', (req, res, next) => controller.getWeather(req, res, next))
+router.post('/weather', (req, res, next) => controller.getWeather(req, res, next))

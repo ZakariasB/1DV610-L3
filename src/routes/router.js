@@ -10,7 +10,7 @@ import express from 'express'
 
 export const router = express.Router()
 
-router.use('/weather', weatherRouter)
+router.use('/api', weatherRouter)
 
 
 router.use('*', (req, res, next) => {

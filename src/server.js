@@ -4,6 +4,7 @@ import path from 'path'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { router } from './routes/router.js'
+import bodyParser from 'body-parser'
 
 
 
@@ -11,6 +12,7 @@ try {
   const app = express()
   const directoryFullName = dirname(fileURLToPath(import.meta.url))
   app.use(express.static(path.join(directoryFullName, '../../client/build')))
+  app.use(bodyParser.json())
 
 
   if (app.get('env') === 'production') {
