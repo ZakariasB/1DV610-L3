@@ -73,6 +73,46 @@ function resetView() {
 
 }
 
-function drawCharts () {
-    
+function drawCharts (data) {
+    document.getElementById('temperatureChart').style.display = 'block'
+    document.getElementById('precipitationChart').style.display = 'block'
+    document.getElementById('weatherConditionsChart').style.display = 'block'
+
+    const days = Object.keys(data.dailyAvgTemps)
+    const temperatures = Object.values(data.dailyAvgTemps)
+    const precipitations = Object.values(data.dailyPrecipitation)
+    const conditions = Object.keys(data.weatherConditions)
+    const conditionCounts = Object.values(data.weatherConditions)
+
+
+    const lineChartOptions = {
+        canvasId: 'temperatureChart',
+        data: temperatures,
+        labels: days
+
+
+    }
+    const lineChart = new LineChart(lineChartOptions)
+
+    const barChartOptions = {
+        canvasId: 'precipitationChart',
+        data: precipitations,
+        labels: days
+
+    }
+    const barChart = new LineChart(barChartOptions)
+
+    const pieChartOptions = {
+        canvasId: 'weatherConditionsChart',
+        data: conditionCounts,
+        labels: conditions
+
+    }
+    const pieChart = new LineChart(pieChartOptions)
+
+    lineChart.draw()
+    barChart.draw()
+    pieChart.draw()
+
+
 }
