@@ -23,25 +23,66 @@ export class WeatherController {
     
             const forecastData = await forecastApiResponse.json()
             const computedData = {}
-            computedData.temperature = calculateFiveDayAverageTemperature()
-            computedData.precipitation = calculateFiveDayAveragePrecipitation()
-            computedData.weatherConditions = calculateWeatherConditions()
+            computedData.dailyAvgTemps = computeAverageTemperature(forecastData)
+            computedData.precipitation = computeTotalPrecipitation(forecastData)
+            computedData.weatherConditions = computeWeatherConditions(forecastData)
             res.json(computedData)
         } catch (error) {
             return res.status(500).json({error: 'Faulty Request'})
         }
     }
 
-    calculateFiveDayAverageTemperature() {
+    computeAverageTemperature(data) {
+        let dailyTemperatures = {}
+
+    data.list.forEach(entry => {
+        let day = entry.dt_txt.split(' ')[0]
+        if (!dailyTemperatures[day]) {
+            dailyTemperatures[day] = {
+                sum: 0,
+                count: 0
+            }
+        }
+        dailyTemperatures[day].sum += entry.main.temp
+        dailyTemperatures[day].count++
+    })
+
+    for (let day in dailyTemperatures) {
+        dailyTemperatures[day] = dailyTemperatures[day].sum / dailyTemperatures[day].count
+    }
+
+    return dailyTemperatures
 
     }
 
-    calculateFiveDayAveragePrecipitation() {
-
+    computeTotalPrecipitation(data) {
+        let dailyPrecipitation = {}
+    
+        data.list.forEach(entry => {
+            let day = entry.dt_txt.split(' ')[0]
+            if (!dailyPrecipitation[day]) {
+                dailyPrecipitation[day] = 0
+            }
+            if (entry.rain && entry.rain['3h']) {
+                dailyPrecipitation[day] += entry.rain['3h']
+            }
+        })
+    
+        return dailyPrecipitation
     }
 
-    calculateWeatherConditions() {
-        
+    computeWeatherConditions(data) {
+        let conditionCounts = {}
+    
+        data.list.forEach(entry => {
+            let condition = entry.weather[0].description
+            if (!conditionCounts[condition]) {
+                conditionCounts[condition] = 0
+            }
+            conditionCounts[condition]++
+        })
+    
+        return conditionCounts
     }
 
 
