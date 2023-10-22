@@ -1,3 +1,7 @@
+import BarChart from '../modules/Chart-Module/barchart/Barchart.js'
+import LineChart from '../modules/Chart-Module/linechart/Linechart.js'
+import PieChart from '../modules/Chart-Module/piechart/Piechart.js'
+
 function getWeatherData() {
     const city = document.getElementById("cityInput").value
     if (city) {
@@ -104,7 +108,7 @@ function drawCharts (data) {
         labels: days
 
     }
-    const barChart = new LineChart(barChartOptions)
+    const barChart = new BarChart(barChartOptions)
 
     const pieChartOptions = {
         canvasId: 'weatherConditionsChart',
@@ -112,7 +116,7 @@ function drawCharts (data) {
         labels: conditions
 
     }
-    const pieChart = new LineChart(pieChartOptions)
+    const pieChart = new PieChart(pieChartOptions)
 
     lineChart.draw()
     barChart.draw()
