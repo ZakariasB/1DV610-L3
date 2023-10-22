@@ -1,8 +1,11 @@
-import BarChart from '../modules/Chart-Module/barchart/Barchart.js'
-import LineChart from '../modules/Chart-Module/linechart/Linechart.js'
-import PieChart from '../modules/Chart-Module/piechart/Piechart.js'
+import { BarChart, LineChart, PieChart } from './modules/Chart-Module/charts.js'
+
+
+
+
 
 function getWeatherData() {
+    console.log(2)
     const city = document.getElementById("cityInput").value
     if (city) {
         getWeather(city)
@@ -26,26 +29,31 @@ async function getWeather(city) {
    }
 
    const data = await response.json()
-   displayWeatherData(data)
+   displayWeatherData(data, city)
 } catch (error) {
     console.error('There was a problem with the fetch operation')
 }
 
 }
 
-function displayWeatherData (data) {
+function displayWeatherData (data, city) {
     document.getElementById('cityPrompt').style.display = 'none'
 
     const weatherOutput = document.getElementById('weatherOutput')
     weatherOutput.innerHTML = `
-        <h2>Weather in ${data.city}</h2>
+        <h2>Weather in ${city}</h2>
         <p>Temperature: ${data.main.temp}°C</p>
         <p>Conditions: ${data.weather[0].description}</p>
 
-        <button onclick="resetView()">Go Back</button>
-        <button onclick="getFiveDayForecast(data.city)">Get Five Day Forecast</button>
+        <button id="reset">Go Back</button>
+        <button id="fiveDay">Get Five Day Forecast</button>
         
     `
+
+    document.getElementById('reset').addEventListener("click", resetView)
+    document.getElementById('fiveDay').addEventListener("click", function() {
+        getFiveDayForecast(city)
+    })
     weatherOutput.style.display = 'block'
 }
 
@@ -76,7 +84,8 @@ function resetView() {
         const data = await response.json()
         drawCharts(data)
      } catch (error) {
-         console.error('There was a problem with the fetch operation')
+        console.error(error)
+        console.error('There was a problem with the fetch operation')
      }
 
 }
@@ -124,3 +133,12 @@ function drawCharts (data) {
 
 
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('citySubmit')
+    button.addEventListener('click', getWeatherData)
+    
+})
+
+    
+

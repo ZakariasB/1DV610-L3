@@ -11,20 +11,13 @@ import bodyParser from 'body-parser'
 try {
   const app = express()
   const directoryFullName = dirname(fileURLToPath(import.meta.url))
-  app.use(express.static(path.join(directoryFullName, '../../client/build')))
-  app.use(bodyParser.json())
-
-
-  if (app.get('env') === 'production') {
-    app.set('trust proxy', 1) // trust first proxy
-    sessionOptions.cookie.secure = true // serve secure cookies
-  }
-
+  app.use(express.static(path.join(directoryFullName, '../../1DV610-L3/static')))
+  app.use(express.json())
   
   app.use(express.urlencoded({ extended: false }))
   
   app.get('*', (req, res) => {
-    res.sendFile(path.join(directoryFullName, '../../client/build/index.html'))
+    res.sendFile(path.join(directoryFullName, '../../1DV610-L3/static/index.html'))
   })
 
   app.use('/', router)

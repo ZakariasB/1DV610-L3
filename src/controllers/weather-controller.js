@@ -23,9 +23,9 @@ export class WeatherController {
     
             const forecastData = await forecastApiResponse.json()
             const computedData = {}
-            computedData.dailyAvgTemps = computeAverageTemperature(forecastData)
-            computedData.precipitation = computeTotalPrecipitation(forecastData)
-            computedData.weatherConditions = computeWeatherConditions(forecastData)
+            computedData.dailyAvgTemps = this.computeAverageTemperature(forecastData)
+            computedData.dailyPrecipitation = this.computeTotalPrecipitation(forecastData)
+            computedData.weatherConditions = this.computeWeatherConditions(forecastData)
             res.json(computedData)
         } catch (error) {
             return res.status(500).json({error: 'Faulty Request'})
