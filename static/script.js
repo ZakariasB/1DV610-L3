@@ -48,6 +48,10 @@ function displayWeatherData (data) {
 function resetView() {
     document.getElementById('cityPrompt').style.display = 'block'
     document.getElementById('weatherOutput').style.display = 'none'
+
+    document.getElementById('temperatureChart').style.display = 'none'
+    document.getElementById('precipitationChart').style.display = 'none'
+    document.getElementById('precipitationChart').style.display = 'none'
 }
 
  async function getFiveDayForecast(city) {
