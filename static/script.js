@@ -5,13 +5,26 @@ import { BarChart, LineChart, PieChart } from './modules/Chart-Module/charts.js'
 
 
 function getWeatherData() {
-    console.log(2)
     const city = document.getElementById("cityInput").value
     if (city) {
         getWeather(city)
     } else {
         showErrorMessage("Please enter a valid city")
     }
+}
+
+function showErrorMessage(message) {
+    const errorDiv = document.getElementById("errorMessages")
+    errorDiv.style.display = 'block'
+    errorDiv.innerHTML =  `
+    <h1>Error</h1>
+    <h2 id="errorDescription"></h2>
+    <button id="tryAgain">Go Back</button>
+    `
+    document.getElementById("errorDescription").textContent = message
+    document.getElementById('tryAgain').addEventListener("click", resetView)
+
+
 }
 
 async function getWeather(city) {
@@ -31,7 +44,7 @@ async function getWeather(city) {
    const data = await response.json()
    displayWeatherData(data, city)
 } catch (error) {
-    console.error('There was a problem with the fetch operation')
+    showErrorMessage('City Not Found!')
 }
 
 }
@@ -62,6 +75,8 @@ function resetView() {
     document.getElementById('weatherOutput').style.display = 'none'
 
     document.getElementById('chartDiv').style.display = 'none'
+    document.getElementById('errorMessages').style.display = 'none'
+    document.getElementById("errorDescription").textContent = ''
 }
 
  async function getFiveDayForecast(city) {
@@ -82,8 +97,7 @@ function resetView() {
         const data = await response.json()
         drawCharts(data)
      } catch (error) {
-        console.error(error)
-        console.error('There was a problem with the fetch operation')
+        showErrorMessage('No weather data')
      }
 
 }
