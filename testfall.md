@@ -37,7 +37,7 @@ Tryck sedan på knappen "get five day forecast"
 
 Ett stapeldiagram bör visas (med andra diagram) det bör se ut så här:
 
-[Stapeldiagram](./imgs/barChart.png)
+![Stapeldiagram](./imgs/barChart.png)
 
 ### 2.2 Ritning av Linjediagram
 
@@ -49,7 +49,7 @@ Tryck sedan på knappen "get five day forecast"
 
 Ett linjediagram bör visas (med andra diagram) det bör se ut så här:
 
-[Linjediagram](./imgs/lineChart.png)
+![Linjediagram](./imgs/lineChart.png)
 
 ### 2.3 Ritning av Pajdiagram
 
@@ -61,4 +61,4 @@ Tryck sedan på knappen "get five day forecast"
 
 Ett pajdiagram bör visas (med andra diagram) det bör se ut så här:
 
-[Pajdiagram](./imgs/pieChart.png)
+![Pajdiagram](./imgs/pieChart.png)

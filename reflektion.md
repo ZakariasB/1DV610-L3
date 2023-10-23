@@ -3,8 +3,8 @@
 ## Kapitel 2
 
 Som jag nämnt i förra reflektionen så har de namn jag skrivit inte varit “förfärliga” men mycket tanke har inte lagts på att komma fram med “bra” namn på variabler m.m. Den största påverkan detta kapitlet har haft på mig handlar nog mer om att förbättra de sämre namnen, till exempel de namnen som inte är beskrivande och som kan skapa disinformation .
-[Exempel](./imgs/1.png)
-[Exempel](./imgs/2.png)
+![Exempel](./imgs/1.png)
+![Exempel](./imgs/2.png)
 
 
 Utöver detta har jag försökt undvika att namnge för mig själv och istället namnge så en annan programmerare ska kunna få en snabb överblick på vad det handlar om samtidigt som jag fortsätter med att till exempel namnge klasser som substantiv och metoder som verb.
@@ -13,7 +13,7 @@ Utöver detta har jag försökt undvika att namnge för mig själv och istället
 ## Kapitel 3
 
 Funktionerna storlek, abstraktionsnivå samt syfte var något som var lite huller om buller (och fortfarande är) men som jag nu har försökt bryta ut för att låta funktionerna fokusera på en sak. Ett exempel är: 
-[Exempel](./imgs/3.png)
+![Exempel](./imgs/3.png)
 
 där funktionerna fokuserar på en sak (hämta data, visa data) men också på att de är på samma abstraktionsnivå.
 
@@ -23,18 +23,18 @@ I modulen har jag fortsatt med att mestadels ha niladiska funktioner men nu med 
 ## Kapitel 4
 
 Många av JSDOC kommentarerna har mycket redundant information men jag har valt att behålla dem i modul fallet då de både krävs för kodstandarden jag använder men också för att det känns som något som är bra att ha speciellt när man skriver moduler som andra ska använda / api:er. I detta fall hade jag definitivt lagt mer tid på att förbättra dessa kommentarer om jag hade det och ändra flertalet så att de inte bara är “noise”.
-[Exempel](./imgs/4.png)
+![Exempel](./imgs/4.png)
 
 ## Kapitel 5
 
 Formateringen är något som jag lagt fokus på att förbättra specifikt i modulen men också i webbappen. I modulen har jag nu reducerat duplicerad kod genom att flytta gemensam funktionalitet till en bas klass och låta de andra klasserna extenda denna.
 
-[Exempel](./imgs/5.png)
+![Exempel](./imgs/5.png)
 
 
 Jag har också försökt lägga de metoder/funktioner som anropar varandra i en ordning så att man tydligt kan läsa och hoppa från funktion till funktion (vertikal distans).
 
-[Exempel](./imgs/6.png)
+![Exempel](./imgs/6.png)
 
 
 Däremot finns det flertalet exempel där jag skulle kunnat hålla den horisontella formateringen lägre om jag haft mer tid. 
@@ -52,8 +52,8 @@ Däremot har jag definitivt kunnat tänka mer på The Law of Demeter då jag har
 
 Felhanteringen är också något som jag förbättrat både genom att bryta ut denna i en egen metod men också genom att byta från konsol anrop (console.error) till att alltid använda undantag 
 
-[Exempel](./imgs/7.png)
-[Exempel](./imgs/8.png)
+![Exempel](./imgs/7.png)
+![Exempel](./imgs/8.png)
 
 
 Jag har också försökt att låta undantagen beskriva vad problemet är så att en användare av modulen vet vad problemet är. 
