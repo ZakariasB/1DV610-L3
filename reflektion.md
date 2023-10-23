@@ -14,6 +14,7 @@ Utöver detta har jag försökt undvika att namnge för mig själv och istället
 ## Kapitel 3
 
 Funktionerna storlek, abstraktionsnivå samt syfte var något som var lite huller om buller (och fortfarande är) men som jag nu har försökt bryta ut för att låta funktionerna fokusera på en sak. Ett exempel är: 
+
 ![Exempel](./imgs/3.png)
 
 där funktionerna fokuserar på en sak (hämta data, visa data) men också på att de är på samma abstraktionsnivå.
@@ -24,6 +25,7 @@ I modulen har jag fortsatt med att mestadels ha niladiska funktioner men nu med 
 ## Kapitel 4
 
 Många av JSDOC kommentarerna har mycket redundant information men jag har valt att behålla dem i modul fallet då de både krävs för kodstandarden jag använder men också för att det känns som något som är bra att ha speciellt när man skriver moduler som andra ska använda / api:er. I detta fall hade jag definitivt lagt mer tid på att förbättra dessa kommentarer om jag hade det och ändra flertalet så att de inte bara är “noise”.
+
 ![Exempel](./imgs/4.png)
 
 ## Kapitel 5
@@ -54,6 +56,7 @@ Däremot har jag definitivt kunnat tänka mer på The Law of Demeter då jag har
 Felhanteringen är också något som jag förbättrat både genom att bryta ut denna i en egen metod men också genom att byta från konsol anrop (console.error) till att alltid använda undantag 
 
 ![Exempel](./imgs/7.png)
+
 ![Exempel](./imgs/8.png)
 
 
