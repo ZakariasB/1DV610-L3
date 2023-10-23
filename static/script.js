@@ -1,9 +1,5 @@
 import { BarChart, LineChart, PieChart } from './modules/Chart-Module/charts.js'
 
-
-
-
-
 function getWeatherData() {
     const city = document.getElementById("cityInput").value
     if (city) {
@@ -23,8 +19,6 @@ function showErrorMessage(message) {
     `
     document.getElementById("errorDescription").textContent = message
     document.getElementById('tryAgain').addEventListener("click", resetView)
-
-
 }
 
 async function getWeather(city) {
@@ -119,8 +113,6 @@ function drawCharts (data) {
         data: temperatures,
         labels: days,
         color:'#FF0000'
-
-
     }
     const lineChart = new LineChart(lineChartOptions)
 
@@ -129,7 +121,6 @@ function drawCharts (data) {
         data: precipitations,
         labels: days,
         colors: ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FFC0CB']
-
     }
     const barChart = new BarChart(barChartOptions)
 
@@ -138,15 +129,12 @@ function drawCharts (data) {
         data: conditionCounts,
         labels: conditions,
         colors: ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FFC0CB']
-
     }
     const pieChart = new PieChart(pieChartOptions)
 
     lineChart.draw()
     barChart.draw()
     pieChart.draw()
-
-
 }
 
 function formatDay(day) {
@@ -157,8 +145,4 @@ function formatDay(day) {
 document.addEventListener('DOMContentLoaded', function() {
     const button = document.getElementById('citySubmit')
     button.addEventListener('click', getWeatherData)
-    
 })
-
-    
-

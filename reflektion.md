@@ -3,6 +3,7 @@
 ## Kapitel 2
 
 Som jag nämnt i förra reflektionen så har de namn jag skrivit inte varit “förfärliga” men mycket tanke har inte lagts på att komma fram med “bra” namn på variabler m.m. Den största påverkan detta kapitlet har haft på mig handlar nog mer om att förbättra de sämre namnen, till exempel de namnen som inte är beskrivande och som kan skapa disinformation .
+
 ![Exempel](./imgs/1.png)
 ![Exempel](./imgs/2.png)
 
