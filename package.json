@@ -14,12 +14,16 @@
   },
   "author": "Zakarias Bergcrona",
   "license": "MIT",
+  "eslintConfig": {
+    "extends": "@lnu"
+  },
   "dependencies": {
     "express": "^4.18.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "@lnu/eslint-config": "^1.1.7"
 
   },
   "bugs": {

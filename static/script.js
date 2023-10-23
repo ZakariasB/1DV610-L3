@@ -80,7 +80,8 @@ function resetView() {
 }
 
  async function getFiveDayForecast(city) {
-
+    document.getElementById('fiveDay').remove()
+    
     try {
         const response = await fetch('http://localhost:3000/api/weather/fiveday', {
          method: 'POST',
@@ -106,7 +107,7 @@ function drawCharts (data) {
     document.getElementById('chartDiv').style.display = 'block'
     
 
-    const days = Object.keys(data.dailyAvgTemps)
+    const days = Object.keys(data.dailyAvgTemps).map(formatDay)
     const temperatures = Object.values(data.dailyAvgTemps)
     const precipitations = Object.values(data.dailyPrecipitation)
     const conditions = Object.keys(data.weatherConditions)
@@ -146,6 +147,11 @@ function drawCharts (data) {
     pieChart.draw()
 
 
+}
+
+function formatDay(day) {
+    const parts = day.split('-')
+    return `${parts[1]}-${parts[2]}`
 }
 
 document.addEventListener('DOMContentLoaded', function() {
