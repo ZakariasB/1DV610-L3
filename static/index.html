@@ -9,9 +9,16 @@
 </head>
 
 <body>
-    <canvas id="temperatureChart" style="display: none;"></canvas>
-    <canvas id="precipitationChart" style="display: none;"></canvas>
-    <canvas id="weatherConditionsChart" style="display: none;"></canvas>
+  <div id="chartDiv" style="display: none;">
+    <h2>Temperature Distribution</h2>
+    <canvas id="temperatureChart"></canvas>
+    <h2>Precipitation Distribution</h2>
+    <canvas id="precipitationChart"></canvas>
+    <h2>Weather Conditions</h2>
+    <canvas id="weatherConditionsChart"></canvas>
+    
+  </div>
+
     <div id="cityPrompt">
         <label for="cityInput">Enter a City:</label>
         <input type="text" id="cityInput">

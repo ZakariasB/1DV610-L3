@@ -61,9 +61,7 @@ function resetView() {
     document.getElementById('cityPrompt').style.display = 'block'
     document.getElementById('weatherOutput').style.display = 'none'
 
-    document.getElementById('temperatureChart').style.display = 'none'
-    document.getElementById('precipitationChart').style.display = 'none'
-    document.getElementById('precipitationChart').style.display = 'none'
+    document.getElementById('chartDiv').style.display = 'none'
 }
 
  async function getFiveDayForecast(city) {
@@ -91,9 +89,8 @@ function resetView() {
 }
 
 function drawCharts (data) {
-    document.getElementById('temperatureChart').style.display = 'block'
-    document.getElementById('precipitationChart').style.display = 'block'
-    document.getElementById('weatherConditionsChart').style.display = 'block'
+    document.getElementById('chartDiv').style.display = 'block'
+    
 
     const days = Object.keys(data.dailyAvgTemps)
     const temperatures = Object.values(data.dailyAvgTemps)
@@ -105,7 +102,8 @@ function drawCharts (data) {
     const lineChartOptions = {
         canvasId: 'temperatureChart',
         data: temperatures,
-        labels: days
+        labels: days,
+        color:'#FF0000'
 
 
     }
@@ -114,7 +112,8 @@ function drawCharts (data) {
     const barChartOptions = {
         canvasId: 'precipitationChart',
         data: precipitations,
-        labels: days
+        labels: days,
+        colors: ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FFC0CB']
 
     }
     const barChart = new BarChart(barChartOptions)
@@ -122,7 +121,8 @@ function drawCharts (data) {
     const pieChartOptions = {
         canvasId: 'weatherConditionsChart',
         data: conditionCounts,
-        labels: conditions
+        labels: conditions,
+        colors: ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FFC0CB']
 
     }
     const pieChart = new PieChart(pieChartOptions)
